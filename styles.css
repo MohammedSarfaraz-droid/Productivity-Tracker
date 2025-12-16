@@ -1,0 +1,105 @@
+:root{
+    --pri:#f8f4e1;
+    --sec:#4e1f00;
+    --ter1:#feba17;
+    --ter2: #74512d;
+}
+
+@font-face{
+    font-family: light;
+    src: url(./GCGatuzoDemo-Light-BF6941168b1adb3.ttf);
+}
+@font-face{
+    font-family: normal;
+    src: url(./GCGatuzoDemo-Regular-BF6941168ae9b00.ttf);
+}
+@font-face{
+    font-family: bold;
+    src: url(./GCGatuzoDemo-Bold-BF6941168a71516.ttf);
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: normal;
+    color: var(--pri);
+}
+
+html,body{
+    height: 100%;
+    width: 100%;
+}
+
+#main{
+    height: 100%;
+    width: 100%;
+    background-color: var(--sec);
+}
+nav{
+    position: fixed;
+    width: 100%;
+    height: 60px;
+    background-color: var(--ter2);
+}
+section.allElems{
+    height: 100%;
+    width: 100%;
+    padding: 60px;
+    padding-top: 40px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    gap: 40px;
+    position: absolute;
+}
+.elem{
+    height: 400px;
+    width: 300px;
+    font-size: 15px;
+    font-family: 700;
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+    transition: all ease 0.2s;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+
+    cursor: pointer;
+}
+.elem img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    opacity: 80%;
+}
+.elem h2{
+    position: absolute;
+    bottom: 4%;
+    right: 5%;
+    font-weight: 100;
+}
+.elem:active{
+    scale:0.97
+}
+.fullElem{
+    height: 100%;
+    width: 100%;
+    background-color: #381c0a;
+    padding: 40px;
+    font-size: 30px;
+    display: none;
+    position: absolute;
+}
+.back{
+    position: absolute;
+    right: 5%;
+    background-color: red;
+    padding: 10px 15px;
+    border: none;
+    font-weight: 500;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 15px;
+}
+.back:active{
+    scale: 0.97;
+}
