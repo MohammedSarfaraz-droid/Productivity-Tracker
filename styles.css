@@ -4,6 +4,8 @@
     --ter1:#feba17;
     --ter2: #74512d;
     --red:red;
+    --green:rgb(9,138,89);
+    --blue:rgb(0,191,255);
 }
 
 @font-face{
@@ -529,4 +531,57 @@ section.allElems{
     opacity: 0.1;
     transform: rotate(-15deg);
     pointer-events: none;
+}
+
+/* .pomodoro-timer-fullpage{
+    /* display: block; */
+    /* position: relative; */
+/* } */ 
+
+.pomodoro-timer-fullpage h2{
+    font-size: 40px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+.pomodoro-timer-fullpage .pomo-timer{
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    text-align: center;
+    background-color: var(--ter2);
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0,0,0 ,0.3);
+}
+.pomo-timer h1{
+    font-size: 150px;
+    font-family: bold;
+}
+.pomo-timer button{
+    background-color: var(--sec);
+    padding: 15px 40px;
+    font-size: 30px;
+    margin: 10px;
+    border-radius: 5px;
+    border: none;
+    box-shadow: 3px 3px 0px black;
+    color: var(--pri);
+    cursor: pointer;
+    transition: all ease 0.2s;
+}
+.pomo-timer button:active{
+    box-shadow: 0 0 0 black;
+    scale: 0.9;
+}
+.pomodoro-timer-fullpage .session{
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%,0%);
+    background-color: var(--green);
+    padding: 15px 30px;
+    font-size: 25px;
+    color: var(--pri);
+    border-radius: 5px;
 }
