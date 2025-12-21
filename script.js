@@ -119,3 +119,22 @@ function dailyPlanner() {
   })
 }
 dailyPlanner();
+
+function motivationalQuotes() {
+  var motivationQuoteContent = document.querySelector('.motivation-2 h1');
+  var motivationAuthor = document.querySelector('.motivation-3 h2');
+
+  async function fetchQuote() {
+    const url = 'https://dummyjson.com/quotes/random';
+    let response = await fetch(url);
+    let data = await response.json();
+
+    console.log(data);
+
+
+    motivationQuoteContent.innerHTML = data.quote;
+    motivationAuthor.innerHTML = `- ${data.author}`;
+  }
+  fetchQuote();
+}
+motivationalQuotes();

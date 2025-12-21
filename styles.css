@@ -106,6 +106,7 @@ section.allElems{
     border-radius: 10px;
     cursor: pointer;
     font-size: 15px;
+    z-index: 101;
 }
 .back:active{
     scale: 0.97;
@@ -340,6 +341,14 @@ section.allElems{
     .daily-planner-fullpage .day-planner .day-planner-time {
         width: 100%;
     }
+
+    /* Motivation Tablet Styles */
+    .motivation-fullpage .motivation-container {
+        width: 90%;
+    }
+    .motivation-2 h1 {
+        font-size: 36px;
+    }
 }
 
 @media (max-width: 600px) {
@@ -371,4 +380,153 @@ section.allElems{
         font-size: 12px;
         top: 10%;
     }
+
+    /* Motivation Mobile Styles */
+    .motivation-fullpage .motivation-container {
+        width: 90%;
+        position: fixed; /* Change to fixed to keep it centered */
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        max-height: 85vh; /* Leave some room for the close button */
+        overflow-y: auto; /* Scroll if content is too long */
+    }
+    .motivation-fullpage .motivation-container .motivation-wrapper {
+        padding: 25px 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        min-height: 300px; /* Ensure it has some presence */
+    }
+    .motivation-fullpage .motivation-container .motivation-wrapper .motivation-1{
+        margin-bottom: 15px;
+    }
+    .motivation-fullpage .motivation-container .motivation-wrapper .motivation-1 h2 {
+        font-size: 14px;
+        letter-spacing: 1px;
+        text-align: center; /* Center align for better mobile balance */
+    }
+    .motivation-2{
+        margin-bottom: 20px;
+    }
+    .motivation-2 h1 {
+        font-size: 22px; /* Smaller but readable */
+        line-height: 1.4;
+        text-align: center; /* Center align quote */
+    }
+    .motivation-fullpage .motivation-container .motivation-wrapper .motivation-3 {
+        justify-content: center; /* Center align author */
+    }
+    .motivation-fullpage .motivation-container .motivation-wrapper .motivation-3 h2 {
+        font-size: 12px;
+        padding: 6px 12px;
+    }
+    /* Hide the decorative image on very small screens to save space */
+    .motivation-fullpage .motivation-container .motivation-wrapper img{
+        display: none;
+    }
+}
+
+/* .motivation-fullpage{
+    /* display: block; */
+    /* position: relative; */
+/* } */ 
+
+.motivation-fullPage-container{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.motivation-fullpage .motivation-container{
+    height: auto;
+    width: 80%;
+    max-width: 800px;
+    z-index: 1;
+    position: relative;
+}
+.motivation-fullpage .motivation-container::after{
+    content: '';
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: var(--ter1);
+    border-radius: 30px;
+    scale: 1.02;
+    filter: blur(100px);
+    z-index: -1;
+    opacity: 0.6;
+}
+.motivation-fullpage .motivation-container .motivation-wrapper{
+    z-index: 2;
+    position: relative;
+    width: 100%;
+    background-color: var(--pri);
+    padding: 40px;
+    border-radius: 30px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    border: 2px solid var(--ter1);
+    overflow: hidden;
+}
+.motivation-fullpage .motivation-container .motivation-wrapper .motivation-1{
+    background-color: transparent;
+    padding: 0;
+    border-radius: 0;
+    margin-bottom: 20px;
+    position: relative;
+    z-index: 2;
+}
+.motivation-fullpage .motivation-container .motivation-wrapper .motivation-1 h2{
+    font-size: 24px;
+    font-family: bold;
+    text-align: left;
+    color: var(--ter2);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+.motivation-2{
+    padding: 0;
+    margin-top: 0;
+    margin-bottom: 30px;
+    position: relative;
+    z-index: 2;
+}
+.motivation-2 h1{
+    font-size: 48px;
+    font-family: normal;
+    color: var(--sec);
+    line-height: 1.2;
+    font-style: italic;
+}
+.motivation-fullpage .motivation-container .motivation-wrapper .motivation-3{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-top: 0;
+    position: relative;
+    z-index: 2;
+}
+.motivation-fullpage .motivation-container .motivation-wrapper .motivation-3 h2{
+    background-color: var(--ter2);
+    color: var(--pri);
+    padding: 10px 20px;
+    border-radius: 50px;
+    font-size: 18px;
+    text-align: right;
+    width: fit-content;
+    font-family: light;
+}
+.motivation-fullpage .motivation-container .motivation-wrapper img{
+    position: absolute;
+    right: -5%;
+    bottom: -10%;
+    top: auto;
+    height: 200px;
+    width: auto;
+    opacity: 0.1;
+    transform: rotate(-15deg);
+    pointer-events: none;
 }
