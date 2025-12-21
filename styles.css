@@ -6,6 +6,7 @@
     --red:red;
     --green:rgb(9,138,89);
     --blue:rgb(0,191,255);
+    --black:black
 }
 
 @font-face{
@@ -39,23 +40,93 @@ html,body{
     background-color: var(--sec);
     position: relative;
 }
-nav{
-    position: fixed;
-    width: 100%;
-    height: 60px;
-    background-color: var(--ter2);
-    z-index: 99;
-}
 section.allElems{
     min-height: 100vh;
     width: 100%;
-    padding: 40px 20px 20px 20px;
+    padding: 40px 20px 20px 20px; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.allElems header{
+    height: 300px;
+    width: 100%;
+    /* background-color: var(--ter2); */
+    background-image: url('https://images.unsplash.com/photo-1500964757637-c85e8a162699?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fGxhbmRzY2FwZXxlbnwwfHwwfHx8MA%3D%3D');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    filter: opacity(60%);
+    margin-bottom: 40px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 50px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+}
+
+.header1{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.header2{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    text-align: right;
+}
+
+header .header1 h1{
+    font-size: 60px;
+    color: var(--sec);
+    text-shadow: 2px 2px 0px var(--pri), 4px 4px 0px rgba(0,0,0,0.2);
+    font-family: bold;
+    letter-spacing: 2px;
+    line-height: 1.1;
+}
+header .header1 h2{
+    font-size: 35px;
+    color: var(--sec);
+    text-shadow: 2px 2px 0px var(--pri), 4px 4px 0px rgba(0,0,0,0.2);
+    font-family: normal;
+    letter-spacing: 1px;
+}
+header .header1 h4{
+    font-size: 50px;
+    color: var(--sec);
+    text-shadow: 2px 2px 0px var(--pri), 4px 4px 0px rgba(0,0,0,0.2);
+    font-family: light;
+    letter-spacing: 1px;
+}
+header .header2 h2{
+    font-size: 40px;
+    color: var(--sec);
+    text-shadow: 2px 2px 0px var(--pri), 4px 4px 0px rgba(0,0,0,0.2);
+    font-family: normal;
+    letter-spacing: 1px;
+}
+header .header2 h4{
+    font-size: 30px;
+    color: var(--sec);
+    font-family: light;
+}
+header .header2 h3{
+    font-size: 20px;
+    opacity: 0.8;
+    color: var(--black);
+}
+
+.allElems .allFeatures{
+    gap: 65px;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-content: center;
     align-items: center;
-    gap: 30px;
 }
 .elem{
     height: 400px;
@@ -254,7 +325,7 @@ section.allElems{
     width: 25px;
     height: 25px;
     cursor: pointer;
-    background-color: black;
+    background-color: var(--black);
 }
 .checkbox-div label{
     font-size: 20px;
@@ -317,6 +388,33 @@ section.allElems{
     section.allElems {
         gap: 20px;
     }
+    .allElems header {
+        height: auto;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 30px;
+        gap: 20px;
+    }
+    .header1, .header2 {
+        width: 100%;
+        text-align: left;
+    }
+    header .header1 h1 {
+        font-size: 50px;
+    }
+    header .header1 h4 {
+        font-size: 30px;
+    }
+    header .header2 h2 {
+        font-size: 30px;
+    }
+    header .header2 h4 {
+        font-size: 24px;
+    }
+    header .header2 h3 {
+        font-size: 18px;
+    }
+    
     .elem {
         width: 45%;
         min-width: 250px;
@@ -351,9 +449,46 @@ section.allElems{
     .motivation-2 h1 {
         font-size: 36px;
     }
+    
+    .pomodoro-timer-fullpage h2 {
+        font-size: 36px;
+    }
+    .pomo-timer h1 {
+        font-size: 120px;
+    }
+    .pomo-timer button {
+        font-size: 24px;
+        padding: 12px 30px;
+    }
 }
 
 @media (max-width: 600px) {
+    .allElems header {
+        padding: 20px;
+        margin-bottom: 30px;
+    }
+    header .header1 h1 {
+        font-size: 36px;
+        letter-spacing: 1px;
+    }
+    header .header1 h2 {
+        font-size: 24px;
+    }
+    header .header1 h4 {
+        font-size: 20px;
+    }
+    header .header2 h2 {
+        font-size: 24px;
+    }
+    header .header2 h4 {
+        font-size: 18px;
+    }
+    header .header2 h3 {
+        font-size: 16px;
+    }
+    .allElems .allFeatures{
+        gap: 20px;
+    }
     .elem {
         width: 100%;
     }
@@ -426,6 +561,41 @@ section.allElems{
     /* Hide the decorative image on very small screens to save space */
     .motivation-fullpage .motivation-container .motivation-wrapper img{
         display: none;
+    }
+    
+    .pomodoro-timer-fullpage h2 {
+        font-size: 28px;
+        margin-bottom: 30px;
+        text-align: center;
+    }
+    .pomodoro-timer-fullpage .session {
+        position: static;
+        transform: none;
+        margin: 0 auto 30px auto;
+        display: block;
+        width: fit-content;
+        font-size: 20px;
+    }
+    .pomodoro-timer-fullpage .pomo-timer {
+        position: static;
+        transform: none;
+        width: 100%;
+        padding: 30px 20px;
+        margin-top: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+    .pomo-timer h1 {
+        font-size: 80px;
+        margin-bottom: 10px;
+    }
+    .pomo-timer button {
+        width: 100%;
+        margin: 0;
+        font-size: 20px;
+        padding: 15px;
     }
 }
 
@@ -565,13 +735,13 @@ section.allElems{
     margin: 10px;
     border-radius: 5px;
     border: none;
-    box-shadow: 3px 3px 0px black;
+    box-shadow: 3px 3px 0px var(--black);
     color: var(--pri);
     cursor: pointer;
     transition: all ease 0.2s;
 }
 .pomo-timer button:active{
-    box-shadow: 0 0 0 black;
+    box-shadow: 0 0 0 var(--black);
     scale: 0.9;
 }
 .pomodoro-timer-fullpage .session{
