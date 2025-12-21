@@ -238,7 +238,7 @@ function HeaderDetails() {
   var data = null
 
   async function weatherAPICall() {
-    var apiKey = 'ba3cf69168844c148ab122014252112';
+    var apiKey = CONFIG.API_KEY;
     var city = 'Hyderabad'
     var response = await fetch(`http://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${city}`);
     data = await response.json();
