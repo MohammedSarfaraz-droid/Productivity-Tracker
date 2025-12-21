@@ -11,15 +11,15 @@
 
 @font-face{
     font-family: light;
-    src: url(./GCGatuzoDemo-Light-BF6941168b1adb3.ttf);
+    src: url(./fonts/GCGatuzoDemo-Light-BF6941168b1adb3.ttf);
 }
 @font-face{
     font-family: normal;
-    src: url(./GCGatuzoDemo-Regular-BF6941168ae9b00.ttf);
+    src: url(./fonts/GCGatuzoDemo-Regular-BF6941168ae9b00.ttf);
 }
 @font-face{
     font-family: bold;
-    src: url(./GCGatuzoDemo-Bold-BF6941168a71516.ttf);
+    src: url(./fonts/GCGatuzoDemo-Bold-BF6941168a71516.ttf);
 }
 *{
     margin: 0;

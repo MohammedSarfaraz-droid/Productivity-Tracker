@@ -209,82 +209,83 @@ function pomodoroTimer() {
   pausebtn.addEventListener("click", pauseTimer);
 
   function resetTimer() {
-  clearInterval(timerInterval);
-  totalSeconds = isWorksession ? workDuration : breakDuration;
-  updateTime();
-  
-  // Add these lines to update the session display
-  if (isWorksession) {
-    session.innerHTML = "Work Session!";
-    session.style.backgroundColor = "var(--green)";
-  } else {
-    session.innerHTML = "Break Time!";
-    session.style.backgroundColor = "var(--blue)";
+    clearInterval(timerInterval);
+    totalSeconds = isWorksession ? workDuration : breakDuration;
+    updateTime();
+
+    // Add these lines to update the session display
+    if (isWorksession) {
+      session.innerHTML = "Work Session!";
+      session.style.backgroundColor = "var(--green)";
+    } else {
+      session.innerHTML = "Break Time!";
+      session.style.backgroundColor = "var(--blue)";
+    }
   }
-}
   resetbtn.addEventListener("click", resetTimer);
 }
 pomodoroTimer();
 
+function HeaderDetails() {
+  var header1Time = document.querySelector('.header1 h1')
+  var header1Date = document.querySelector('.header1 h2')
+  var header2Temp = document.querySelector('.header2 h2')
+  var header2Condition = document.querySelector('.header2 h4')
+  var precipitation = document.querySelector('.header2 .precipitation ')
+  var humidity = document.querySelector('.header2 .humidity ')
+  var wind = document.querySelector('.header2 .wind ')
+
+  var data = null
+
+  async function weatherAPICall() {
+    var apiKey = 'ba3cf69168844c148ab122014252112';
+    var city = 'Hyderabad'
+    var response = await fetch(`http://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${city}`);
+    data = await response.json();
+
+    header2Temp.innerHTML = `${data.current.temp_c}°C`
+    header2Condition.innerHTML = `${data.current.condition.text}`
+    console.log(data.current.precip_mm);
+
+    precipitation.innerHTML = `Precipitation: ${data.current.precip_mm}%`
+    humidity.innerHTML = `Humidity: ${data.current.humidity} %`
+    wind.innerHTML = `Wind: ${data.current.wind_kph} kph`
 
 
-var header1Time = document.querySelector('.header1 h1')
-var header1Date = document.querySelector('.header1 h2')
-var header2Temp = document.querySelector('.header2 h2')
-var header2Condition = document.querySelector('.header2 h4')
-var precipitation = document.querySelector('.header2 .precipitation ')
-var humidity = document.querySelector('.header2 .humidity ')
-var wind = document.querySelector('.header2 .wind ')
 
-var data = null
-
-async function weatherAPICall(){
-  var apiKey = 'ba3cf69168844c148ab122014252112';
-  var city = 'Hyderabad'
-  var response = await fetch(`http://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${city}`);
-  data = await response.json();
-
-  header2Temp.innerHTML = `${data.current.temp_c}°C`
-  header2Condition.innerHTML = `${data.current.condition.text}`
-  console.log(data.current.precip_mm);
-  
-  precipitation.innerHTML = `Precipitation: ${data.current.precip_mm}%`
-  humidity.innerHTML = `Humidity: ${data.current.humidity} %`
-  wind.innerHTML = `Wind: ${data.current.wind_kph} kph`
-
-  
-
-}
-weatherAPICall();
-
-
-function timeDate(){
-  const totalDays = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-  const totalMonths = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-  var date = new Date();
-  var currentDay = totalDays[date.getDay()]
-  var hours = date.getHours();
-  var minutes = date.getMinutes();
-  var currentdate = date.getDate();
-  var month = totalMonths[date.getMonth()]; // Months are zero-based
-  var year = date.getFullYear();
-
-  // console.log(currentdate, month , year);
-
-  header1Date.innerHTML = `${String(currentdate).padStart(2, '0')} ${month} ${year}`
-
-  if(minutes<10){
-    minutes = `0${minutes}`
   }
+  weatherAPICall();
 
-  if(hours>12){
-   header1Time.innerHTML = `${currentDay}, ${String(hours-12).padStart(2, '0')}:${String(minutes).padStart(2, '0')} pm` 
-  }else{
-   header1Time.innerHTML = `${currentDay}, ${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')} am` 
+
+  function timeDate() {
+    const totalDays = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+    const totalMonths = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+    var date = new Date();
+    var currentDay = totalDays[date.getDay()]
+    var hours = date.getHours();
+    var minutes = date.getMinutes();
+    var currentdate = date.getDate();
+    var month = totalMonths[date.getMonth()]; // Months are zero-based
+    var year = date.getFullYear();
+
+    // console.log(currentdate, month , year);
+
+    header1Date.innerHTML = `${String(currentdate).padStart(2, '0')} ${month} ${year}`
+
+    if (minutes < 10) {
+      minutes = `0${minutes}`
+    }
+
+    if (hours > 12) {
+      header1Time.innerHTML = `${currentDay}, ${String(hours - 12).padStart(2, '0')}:${String(minutes).padStart(2, '0')} pm`
+    } else {
+      header1Time.innerHTML = `${currentDay}, ${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')} am`
+    }
+
   }
-  
+  setInterval(() => {
+    timeDate();
+  }, 1000);
 }
-setInterval(() =>{
-  timeDate();
-},1000);
+HeaderDetails();
 
